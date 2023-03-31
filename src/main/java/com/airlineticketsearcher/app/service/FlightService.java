@@ -1,8 +1,8 @@
 package com.airlineticketsearcher.app.service;
 
-import java.time.LocalDate;
+import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
 
 public interface FlightService {
 
-    Object searchFlight(String origin, String destination, LocalDate date);
+    Object searchFlight(UnifiedFlightSearchRequest request);
 }

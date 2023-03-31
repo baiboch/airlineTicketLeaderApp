@@ -1,7 +1,7 @@
 package com.airlineticketsearcher.app.service;
 
 import com.airlineticketsearcher.app.exception.ExpireAccessTokenException;
-import com.airlineticketsearcher.app.model.FlightDestinationsRequest;
+import com.airlineticketsearcher.app.model.request.AmadeusFlightDestinationsRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +24,11 @@ public class FlightInspirationSearchService {
 
     private final RestTemplate restTemplate;
 
-    public String fetchFlightDestinations(FlightDestinationsRequest flightDestinationsRequest) {
-        String url = apiUrl + shoppingFlightDestinationsEndpoint + toQueryString(flightDestinationsRequest);
+    public String fetchFlightDestinations(AmadeusFlightDestinationsRequest amadeusFlightDestinationsRequest) {
+        String url = apiUrl + shoppingFlightDestinationsEndpoint + toQueryString(amadeusFlightDestinationsRequest);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + flightDestinationsRequest.getAccessToken());
+        headers.set("Authorization", "Bearer " + amadeusFlightDestinationsRequest.getAccessToken());
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);

@@ -1,15 +1,14 @@
 package com.airlineticketsearcher.app.service;
 
 import com.airlineticketsearcher.app.model.TravelportFlight;
+import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 
 @Service
 public class TravelportFlightService implements FlightService {
 
     @Override
-    public TravelportFlight searchFlight(String origin, String destination, LocalDate date) {
+    public TravelportFlight searchFlight(UnifiedFlightSearchRequest request) {
         return null;
     }
 }
