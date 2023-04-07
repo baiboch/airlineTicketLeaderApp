@@ -7,6 +7,6 @@ tickerSearcher:
       url: https://test.api.amadeus.com/
       api_key: tp7ebwgBgGaGKxRcV1axHwU0kIRqLNlt
       api_secret: UAdoQJFlFKGDJaOj
-    endpoint:
+    api:
       get_access_token: v1/security/oauth2/token
       shopping_flight_destinations: v1/shopping/flight-destinations

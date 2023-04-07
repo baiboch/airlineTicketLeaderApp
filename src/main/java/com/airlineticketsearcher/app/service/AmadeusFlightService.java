@@ -39,9 +39,6 @@ public class AmadeusFlightService implements FlightService {
                     .with("cityCodes", "PAR")
                     .and("travelerCountryCode", "FR"));
 
-
-
-
 //            List<AmadeusFlight> flights = Arrays.stream(flightDestinations).map(flightDestination -> new AmadeusFlight(
 //                    flightDestination.getType(),
 //                    flightDestination.getOrigin(),
@@ -52,7 +49,6 @@ public class AmadeusFlightService implements FlightService {
 //            )).collect(Collectors.toList());
 
             return null;
-
         } catch (ResponseException e) {
             log.error("Amadeus shopping flightDestinations error {}", e.getMessage());
             return null;
