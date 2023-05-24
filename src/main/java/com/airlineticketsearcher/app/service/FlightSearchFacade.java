@@ -18,27 +18,27 @@ import java.util.List;
 @Component
 public class FlightSearchFacade {
 
-    @Autowired
-    private AmadeusFlightService amadeusFlightService;
+  @Autowired
+  private AmadeusFlightService amadeusFlightService;
 
-    @Autowired
-    private SabreFlightService sabreFlightService;
+  @Autowired
+  private SabreFlightService sabreFlightService;
 
-    @Autowired
-    private TravelportFlightService travelportFlightService;
+  @Autowired
+  private TravelportFlightService travelportFlightService;
 
-    public List<UnifiedFlight> searchFlights(UnifiedFlightSearchRequest request) {
-        List<UnifiedFlight> flights = new ArrayList<>();
+  public List<UnifiedFlight> searchFlights(UnifiedFlightSearchRequest request) {
+    List<UnifiedFlight> flights = new ArrayList<>();
 
-        List<AmadeusFlight> amadeusFlight = amadeusFlightService.searchFlight(request);
-        SabreFlight sabreFlight = sabreFlightService.searchFlight(request);
-        TravelportFlight travelportFlight = travelportFlightService.searchFlight(request);
+    List<AmadeusFlight> amadeusFlight = amadeusFlightService.searchFlight(request);
+    SabreFlight sabreFlight = sabreFlightService.searchFlight(request);
+    TravelportFlight travelportFlight = travelportFlightService.searchFlight(request);
 
-        // Адаптируем и добавляем найденные рейсы в единую коллекцию с использованием стратегий
-        flights.add(new FlightAdapter(new AmadeusFlightConversionStrategy()).adapt(amadeusFlight));
-        flights.add(new FlightAdapter(new SabreFlightConversionStrategy()).adapt(sabreFlight));
-        flights.add(new FlightAdapter(new TravelportFlightConversionStrategy()).adapt(travelportFlight));
+    // Адаптируем и добавляем найденные рейсы в единую коллекцию с использованием стратегий
+    flights.add(new FlightAdapter(new AmadeusFlightConversionStrategy()).adapt(amadeusFlight));
+    flights.add(new FlightAdapter(new SabreFlightConversionStrategy()).adapt(sabreFlight));
+    flights.add(new FlightAdapter(new TravelportFlightConversionStrategy()).adapt(travelportFlight));
 
-        return flights;
-    }
+    return flights;
+  }
 }

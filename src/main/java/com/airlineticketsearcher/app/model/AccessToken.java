@@ -6,5 +6,5 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class AccessToken {
-    private String accessToken;
+  private String accessToken;
 }

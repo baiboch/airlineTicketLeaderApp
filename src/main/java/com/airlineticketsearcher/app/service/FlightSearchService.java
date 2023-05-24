@@ -11,9 +11,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FlightSearchService {
 
-    private final FlightSearchFacade flightSearchFacade;
+  private final FlightSearchFacade flightSearchFacade;
 
-    public List<UnifiedFlight> searchFlights(UnifiedFlightSearchRequest request) {
-        return flightSearchFacade.searchFlights(request);
-    }
+  public List<UnifiedFlight> searchFlights(UnifiedFlightSearchRequest request) {
+    return flightSearchFacade.searchFlights(request);
+  }
 }

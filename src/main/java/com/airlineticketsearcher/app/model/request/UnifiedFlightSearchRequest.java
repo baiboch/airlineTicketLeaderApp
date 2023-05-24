@@ -9,6 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UnifiedFlightSearchRequest {
 
-    private String origin;
+    private String from;
+    private String to;
     private String maxPrice;
+
+    public UnifiedFlightSearchRequest(String from, String maxPrice) {
+        this.from = from;
+        this.maxPrice = maxPrice;
+    }
 }

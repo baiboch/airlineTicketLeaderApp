@@ -5,13 +5,13 @@ import com.airlineticketsearcher.app.model.UnifiedFlight;
 
 public class AmadeusFlightConversionStrategy implements FlightConversionStrategy {
 
-    @Override
-    public UnifiedFlight convert(Object systemFlight) {
-        AmadeusFlight amadeusFlight = (AmadeusFlight) systemFlight;
-        UnifiedFlight unifiedFlight = new UnifiedFlight();
+  @Override
+  public UnifiedFlight convert(Object systemFlight) {
+    AmadeusFlight amadeusFlight = (AmadeusFlight) systemFlight;
+    UnifiedFlight unifiedFlight = new UnifiedFlight();
 
 
-        // Конвертация данных из AmadeusFlight в UnifiedFlight
-        return unifiedFlight;
-    }
+    // Конвертация данных из AmadeusFlight в UnifiedFlight
+    return unifiedFlight;
+  }
 }

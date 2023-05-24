@@ -4,5 +4,5 @@ import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
 
 public interface FlightService {
 
-    Object searchFlight(UnifiedFlightSearchRequest request);
+  Object searchFlight(UnifiedFlightSearchRequest request);
 }

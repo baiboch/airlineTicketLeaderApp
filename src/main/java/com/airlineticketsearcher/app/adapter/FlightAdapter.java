@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FlightAdapter {
 
-    private final FlightConversionStrategy strategy;
+  private final FlightConversionStrategy strategy;
 
-    public UnifiedFlight adapt(Object systemFlight) {
-        return strategy.convert(systemFlight);
-    }
+  public UnifiedFlight adapt(Object systemFlight) {
+    return strategy.convert(systemFlight);
+  }
 }

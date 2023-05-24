@@ -16,28 +16,28 @@ import java.util.List;
 @Service
 public class AmadeusFlightService implements FlightService {
 
-    @Value("${tickerSearcher.amadeus.app.api_key}")
-    private String apiKey;
+  @Value("${tickerSearcher.amadeus.app.api_key}")
+  private String apiKey;
 
-    @Value("${tickerSearcher.amadeus.app.api_secret}")
-    private String apiSecret;
+  @Value("${tickerSearcher.amadeus.app.api_secret}")
+  private String apiSecret;
 
-    @Override
-    public List<AmadeusFlight> searchFlight(UnifiedFlightSearchRequest request) {
+  @Override
+  public List<AmadeusFlight> searchFlight(UnifiedFlightSearchRequest request) {
 
-        Amadeus amadeus = Amadeus
-                .builder(apiKey, apiSecret)
-                .setLogLevel("debug")
-                .build();
+    Amadeus amadeus = Amadeus
+        .builder(apiKey, apiSecret)
+        .setLogLevel("debug")
+        .build();
 
-        try {
-            String url = "/v1/shopping/flight-destinations?origin=PAR";
+    try {
+      String url = "/v1/shopping/flight-destinations?origin=PAR";
 
-            // JsonObject flightDestinations = amadeus.get(url, Params.with("originLocationCode", "PAR")).getResult();
+      // JsonObject flightDestinations = amadeus.get(url, Params.with("originLocationCode", "PAR")).getResult();
 
-            Location[] destinations = amadeus.referenceData.recommendedLocations.get(Params
-                    .with("cityCodes", "PAR")
-                    .and("travelerCountryCode", "FR"));
+      Location[] destinations = amadeus.referenceData.recommendedLocations.get(Params
+          .with("cityCodes", "PAR")
+          .and("travelerCountryCode", "FR"));
 
 //            List<AmadeusFlight> flights = Arrays.stream(flightDestinations).map(flightDestination -> new AmadeusFlight(
 //                    flightDestination.getType(),
@@ -48,10 +48,10 @@ public class AmadeusFlightService implements FlightService {
 //                    flightDestination.getPrice()
 //            )).collect(Collectors.toList());
 
-            return null;
-        } catch (ResponseException e) {
-            log.error("Amadeus shopping flightDestinations error {}", e.getMessage());
-            return null;
-        }
+      return null;
+    } catch (ResponseException e) {
+      log.error("Amadeus shopping flightDestinations error {}", e.getMessage());
+      return null;
     }
+  }
 }
