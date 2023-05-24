@@ -4,9 +4,9 @@ server:
 tickerSearcher:
   amadeus:
     app:
-      url: https://test.api.amadeus.com/
-      api_key: tp7ebwgBgGaGKxRcV1axHwU0kIRqLNlt
-      api_secret: UAdoQJFlFKGDJaOj
+      url: ${amadeus_app_url}
+      api_key: ${amadeus_api_key}
+      api_secret: ${amadeus_api_secret}
     api:
-      get_access_token: v1/security/oauth2/token
-      shopping_flight_destinations: v1/shopping/flight-destinations
+      get_access_token: ${amadeus_get_access_token}
+      shopping_flight_destinations: ${amadeus_shopping_flight_destinations}
