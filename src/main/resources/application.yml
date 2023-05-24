@@ -1,9 +1,9 @@
 server:
   port: 8080
 
-tickerSearcher:
+flightTicketResource:
   amadeus:
-    app:
+    app_config:
       url: ${amadeus_app_url}
       api_key: ${amadeus_api_key}
       api_secret: ${amadeus_api_secret}

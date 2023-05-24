@@ -3,7 +3,7 @@ server:
 
 tickerSearcher:
   amadeus:
-    app:
+    app_config:
       url: https://test.api.amadeus.com/
       api_key: tp7ebwgBgGaGKxRcV1axHwU0kIRqLNlt
       api_secret: UAdoQJFlFKGDJaOj

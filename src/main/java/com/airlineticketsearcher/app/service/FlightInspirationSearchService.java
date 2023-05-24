@@ -16,10 +16,10 @@ import static com.airlineticketsearcher.app.util.CommonUtil.toQueryString;
 @RequiredArgsConstructor
 public class FlightInspirationSearchService {
 
-  @Value("${tickerSearcher.amadeus.app.url}")
+  @Value("${flightTicketResource.amadeus.app_config.url}")
   private String apiUrl;
 
-  @Value("${tickerSearcher.amadeus.endpoint.shopping_flight_destinations}")
+  @Value("${flightTicketResource.amadeus.api.shopping_flight_destinations}")
   private String shoppingFlightDestinationsEndpoint;
 
   private final RestTemplate restTemplate;

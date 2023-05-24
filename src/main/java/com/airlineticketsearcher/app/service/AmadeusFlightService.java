@@ -16,10 +16,10 @@ import java.util.List;
 @Service
 public class AmadeusFlightService implements FlightService {
 
-  @Value("${tickerSearcher.amadeus.app.api_key}")
+  @Value("${flightTicketResource.amadeus.app_config.api_key}")
   private String apiKey;
 
-  @Value("${tickerSearcher.amadeus.app.api_secret}")
+  @Value("${flightTicketResource.amadeus.app_config.api_secret}")
   private String apiSecret;
 
   @Override

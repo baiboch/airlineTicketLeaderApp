@@ -14,16 +14,16 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class AccessTokenService {
 
-  @Value("${tickerSearcher.amadeus.app.api_key}")
-  private String apiKey;
-
-  @Value("${tickerSearcher.amadeus.app.api_secret}")
-  private String apiSecret;
-
-  @Value("${tickerSearcher.amadeus.app.url}")
+  @Value("${flightTicketResource.amadeus.app_config.url}")
   private String apiUrl;
 
-  @Value("${tickerSearcher.amadeus.endpoint.get_access_token}")
+  @Value("${flightTicketResource.amadeus.app_config.api_key}")
+  private String apiKey;
+
+  @Value("${flightTicketResource.amadeus.app_config.api_secret}")
+  private String apiSecret;
+
+  @Value("${flightTicketResource.amadeus.api.get_access_token}")
   private String getAccessTokenEndpoint;
 
   private final RestTemplate restTemplate;
