@@ -19,14 +19,13 @@ public class ApiController {
 
     private final FlightSearchService flightSearchService;
 
-    @GetMapping("/data")
-    public ResponseEntity<String> getData(@RequestParam() String from, @RequestParam() String maxPrice) {
-        List<UnifiedFlight> flightList = flightSearchService.searchFlights(new UnifiedFlightSearchRequest(from, maxPrice));
+    public ResponseEntity<String> getDirections(@RequestParam() String from, @RequestParam() String to) {
+        List<UnifiedFlight> flightList = flightSearchService.searchFlights(new UnifiedFlightSearchRequest(from, to));
         return ResponseEntity.ok(flightList.toString());
     }
 
     @GetMapping("/data-to")
-    public ResponseEntity<String> getData(@RequestParam() String from, @RequestParam() String to, @RequestParam() String maxPrice) {
+    public ResponseEntity<String> getDirections(@RequestParam() String from, @RequestParam() String to, @RequestParam() String maxPrice) {
         List<UnifiedFlight> flightList = flightSearchService.searchFlights(new UnifiedFlightSearchRequest(from, to, maxPrice));
         return ResponseEntity.ok(flightList.toString());
     }
