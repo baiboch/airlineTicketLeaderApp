@@ -10,7 +10,6 @@ public class AmadeusFlightConversionStrategy implements FlightConversionStrategy
     AmadeusFlight amadeusFlight = (AmadeusFlight) systemFlight;
     UnifiedFlight unifiedFlight = new UnifiedFlight();
 
-
     // Конвертация данных из AmadeusFlight в UnifiedFlight
     return unifiedFlight;
   }
