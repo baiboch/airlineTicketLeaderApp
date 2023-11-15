@@ -1,5 +1,10 @@
 server:
   port: 8080
+  servlet:
+    context-path: /
+
+airline_ticket_app:
+  base_api_path: /api/v1
 
 flightTicketResource:
   amadeus:
