@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "${airline_ticket_app.base_api_path}/search-flight", produces="application/json")
+@RequestMapping(value = "${app_config.api_path}/search-flight")
 @RequiredArgsConstructor
 public class FlightSearchController {
 
@@ -34,20 +34,4 @@ public class FlightSearchController {
         );
         return ResponseEntity.ok(flightList.toString());
     }
-
-//    @GetMapping(
-//          value = "/search",
-//          consumes = "application/json",
-//          produces = "application/json"
-//    )
-//    public ResponseEntity<String> getMaxPriceDirections(
-//          @RequestParam(name = "to") String to,
-//            @RequestParam(name = "from") String from,
-//            ) {
-//
-//        List<UnifiedFlight> flightList = flightSearchService.searchFlights(
-//              new UnifiedFlightSearchRequest(from, to, maxPrice)
-//        );
-//        return ResponseEntity.ok(flightList.toString());
-//    }
 }

@@ -3,8 +3,8 @@ server:
   servlet:
     context-path: /
 
-airline_ticket_app:
-  base_api_path: /api/v1
+app_config:
+  api_path: /api/v1
 
 flightTicketResource:
   amadeus:
