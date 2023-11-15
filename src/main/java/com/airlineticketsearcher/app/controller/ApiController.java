@@ -19,6 +19,7 @@ public class ApiController {
 
     private final FlightSearchService flightSearchService;
 
+    @GetMapping("/search")
     public ResponseEntity<String> getDirections(@RequestParam() String from, @RequestParam() String to) {
         List<UnifiedFlight> flightList = flightSearchService.searchFlights(
               new UnifiedFlightSearchRequest(from, to)
