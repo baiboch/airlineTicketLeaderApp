@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 @Slf4j
 @UtilityClass
-public class CommonUtil {
+public class UrlUtil {
 
   public static String toQueryString(Object object) {
     try {

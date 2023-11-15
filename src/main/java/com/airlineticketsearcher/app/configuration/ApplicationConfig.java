@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableScheduling
-public class AppConfig {
+public class ApplicationConfig {
 
   @Bean
   public RestTemplate restTemplate() {

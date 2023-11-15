@@ -1,6 +1,6 @@
 package com.airlineticketsearcher.app.service;
 
-import com.airlineticketsearcher.app.exception.ExpireAccessTokenException;
+import com.airlineticketsearcher.app.exception.AccessTokenException;
 import com.airlineticketsearcher.app.model.request.AmadeusFlightDestinationsRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import static com.airlineticketsearcher.app.util.CommonUtil.toQueryString;
+import static com.airlineticketsearcher.app.util.UrlUtil.toQueryString;
 
 @Slf4j
 @Service
@@ -36,7 +36,7 @@ public class FlightInspirationSearchService {
     if (response.getStatusCode().is2xxSuccessful()) {
       return response.getBody();
     } else if (response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
-      throw new ExpireAccessTokenException("access token expired");
+      throw new AccessTokenException("access token expired");
     } else {
       String errorMessage = "Failed to fetch data from external service";
       log.error(errorMessage);
