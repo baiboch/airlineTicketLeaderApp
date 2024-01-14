@@ -44,7 +44,7 @@ public class AccessTokenService {
         ResponseEntity<String> response = restTemplate.postForEntity(getAccessTokenRetrieveUrl(), requestEntity, String.class);
 
         if (response.getStatusCode().is2xxSuccessful()) {
-            accessToken = response.getBody(); // Вам может потребоваться распарсить JSON-ответ, чтобы извлечь токен
+            accessToken = response.getBody();
         } else {
             throw new RuntimeException("Failed to fetch token from external service");
         }

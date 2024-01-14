@@ -5,12 +5,15 @@ import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
 import com.amadeus.Amadeus;
 import com.amadeus.Params;
 import com.amadeus.exceptions.ResponseException;
+import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.Location;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -24,34 +27,41 @@ public class AmadeusFlightService implements FlightService {
 
     @Override
     public List<AmadeusFlight> searchFlight(UnifiedFlightSearchRequest request) {
-
-        Amadeus amadeus = Amadeus
-            .builder(apiKey, apiSecret)
-            .setLogLevel("debug")
-            .build();
-
         try {
-            String url = "/v1/shopping/flight-destinations?origin=PAR";
+            Amadeus amadeus = getAmadeusApi();
+//            String url = "/v1/shopping/flight-destinations?origin=PAR";
 
-            // JsonObject flightDestinations = amadeus.get(url, Params.with("originLocationCode", "PAR")).getResult();
+            Params flightOffersSearchParameters = Params.with("originLocationCode", "PAR")
+                .and("destinationLocationCode", "MAD")
+                .and("departureDate", "2024-08-01")
+                .and("returnDate", "2024-08-12")
+                .and("adults", 1);
 
-            Location[] destinations = amadeus.referenceData.recommendedLocations.get(Params
-                .with("cityCodes", "PAR")
-                .and("travelerCountryCode", "FR"));
+            FlightOfferSearch[] flightOfferSearch = amadeus.shopping.flightOffersSearch.get(
+                flightOffersSearchParameters);
 
-//            List<AmadeusFlight> flights = Arrays.stream(flightDestinations).map(flightDestination -> new AmadeusFlight(
-//                    flightDestination.getType(),
-//                    flightDestination.getOrigin(),
-//                    flightDestination.getDestination(),
-//                    flightDestination.getDepartureDate(),
-//                    flightDestination.getReturnDate(),
-//                    flightDestination.getPrice()
-//            )).collect(Collectors.toList());
+//            Params recommendedLocationsParams = Params.with("cityCodes", "PAR").and("travelerCountryCode", "FR");
+//            Location[] destinations = amadeus.referenceData.recommendedLocations.get(recommendedLocationsParams);
 
-            return null;
+            List<AmadeusFlight> flights = Arrays.stream(flightOfferSearch).map(flightOfferSearchItem -> {
+                AmadeusFlight flight = new AmadeusFlight();
+                flight.setDestination(flightOfferSearchItem.getSource());
+                flight.setType(flightOfferSearchItem.getType());
+
+                return flight;
+            }).collect(Collectors.toList());
+
+            return flights;
         } catch (ResponseException e) {
             log.error("Amadeus shopping flightDestinations error {}", e.getMessage());
             return null;
         }
+    }
+
+    private Amadeus getAmadeusApi() {
+        return Amadeus
+            .builder(apiKey, apiSecret)
+            .setLogLevel("debug")
+            .build();
     }
 }
