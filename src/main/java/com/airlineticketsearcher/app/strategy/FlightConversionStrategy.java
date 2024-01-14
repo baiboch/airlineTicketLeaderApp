@@ -4,5 +4,5 @@ import com.airlineticketsearcher.app.model.UnifiedFlight;
 
 @FunctionalInterface
 public interface FlightConversionStrategy {
-  UnifiedFlight convert(Object systemFlight);
+    UnifiedFlight convert(Object systemFlight);
 }

@@ -20,17 +20,17 @@ public class FlightSearchController {
     private final FlightSearchService flightSearchService;
 
     @GetMapping(
-          value = "/",
-          consumes = "application/json",
-          produces = "application/json"
+        value = "/",
+        consumes = "application/json",
+        produces = "application/json"
     )
     public ResponseEntity<String> getDirections(
-          @RequestParam(name = "from") String from,
-          @RequestParam(name = "to", required = false) String to,
-          @RequestParam(name = "maxPrice", required = false) String maxPrice) {
-
+        @RequestParam(name = "from") String from,
+        @RequestParam(name = "to", required = false) String to,
+        @RequestParam(name = "maxPrice", required = false) String maxPrice
+    ) {
         List<UnifiedFlight> flightList = flightSearchService.searchFlights(
-              new UnifiedFlightSearchRequest(from, to, maxPrice)
+            new UnifiedFlightSearchRequest(from, to, maxPrice)
         );
         return ResponseEntity.ok(flightList.toString());
     }

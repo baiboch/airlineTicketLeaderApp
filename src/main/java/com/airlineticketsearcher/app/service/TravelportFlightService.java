@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TravelportFlightService implements FlightService {
 
-  @Override
-  public TravelportFlight searchFlight(UnifiedFlightSearchRequest request) {
-    return null;
-  }
+    @Override
+    public TravelportFlight searchFlight(UnifiedFlightSearchRequest request) {
+        return null;
+    }
 }

@@ -14,43 +14,43 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class AccessTokenService {
 
-  @Value("${flightTicketResource.amadeus.app_config.url}")
-  private String apiUrl;
+    @Value("${flightTicketResource.amadeus.app_config.url}")
+    private String apiUrl;
 
-  @Value("${flightTicketResource.amadeus.app_config.api_key}")
-  private String apiKey;
+    @Value("${flightTicketResource.amadeus.app_config.api_key}")
+    private String apiKey;
 
-  @Value("${flightTicketResource.amadeus.app_config.api_secret}")
-  private String apiSecret;
+    @Value("${flightTicketResource.amadeus.app_config.api_secret}")
+    private String apiSecret;
 
-  @Value("${flightTicketResource.amadeus.api.get_access_token}")
-  private String getAccessTokenEndpoint;
+    @Value("${flightTicketResource.amadeus.api.get_access_token}")
+    private String getAccessTokenEndpoint;
 
-  private final RestTemplate restTemplate;
-  private String accessToken;
+    private final RestTemplate restTemplate;
+    private String accessToken;
 
-  public String getAccessToken() {
-    return accessToken;
-  }
-
-  @Scheduled(fixedRate = 2 * 60 * 1000) // Обновление токена каждые 2 минуты
-  public void refreshAccessToken() {
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-    String requestBody = "grant_type=client_credentials&client_id=" +
-        apiKey + "&client_secret=" + apiSecret;
-    HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
-    ResponseEntity<String> response = restTemplate.postForEntity(getAccessTokenRetrieveUrl(), requestEntity, String.class);
-
-    if (response.getStatusCode().is2xxSuccessful()) {
-      accessToken = response.getBody(); // Вам может потребоваться распарсить JSON-ответ, чтобы извлечь токен
-    } else {
-      throw new RuntimeException("Failed to fetch token from external service");
+    public String getAccessToken() {
+        return accessToken;
     }
-  }
 
-  private String getAccessTokenRetrieveUrl() {
-    return apiUrl + getAccessTokenEndpoint;
-  }
+    @Scheduled(fixedRate = 2 * 60 * 1000) // Обновление токена каждые 2 минуты
+    public void refreshAccessToken() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+        String requestBody = "grant_type=client_credentials&client_id=" +
+            apiKey + "&client_secret=" + apiSecret;
+        HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
+        ResponseEntity<String> response = restTemplate.postForEntity(getAccessTokenRetrieveUrl(), requestEntity, String.class);
+
+        if (response.getStatusCode().is2xxSuccessful()) {
+            accessToken = response.getBody(); // Вам может потребоваться распарсить JSON-ответ, чтобы извлечь токен
+        } else {
+            throw new RuntimeException("Failed to fetch token from external service");
+        }
+    }
+
+    private String getAccessTokenRetrieveUrl() {
+        return apiUrl + getAccessTokenEndpoint;
+    }
 }

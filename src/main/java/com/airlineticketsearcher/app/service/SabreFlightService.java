@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SabreFlightService implements FlightService {
 
-  @Override
-  public SabreFlight searchFlight(UnifiedFlightSearchRequest request) {
-    return null;
-  }
+    @Override
+    public SabreFlight searchFlight(UnifiedFlightSearchRequest request) {
+        return null;
+    }
 }

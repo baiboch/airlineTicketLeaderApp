@@ -10,10 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class AmadeusFlight {
 
-  private String type;
-  private String origin;
-  private String destination;
-  private Date departureDate;
-  private Date returnDate;
-  private FlightDestination.Price price;
+    private String type;
+    private String origin;
+    private String destination;
+    private Date departureDate;
+    private Date returnDate;
+    private FlightDestination.Price price;
 }
