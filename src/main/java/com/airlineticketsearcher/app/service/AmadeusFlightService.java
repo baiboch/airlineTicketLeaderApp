@@ -5,6 +5,7 @@ import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
 import com.amadeus.Amadeus;
 import com.amadeus.Params;
 import com.amadeus.exceptions.ResponseException;
+import com.amadeus.resources.FlightDate;
 import com.amadeus.resources.FlightOfferSearch;
 import com.amadeus.resources.Location;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,11 @@ public class AmadeusFlightService implements FlightService {
         try {
             Amadeus amadeus = getAmadeusApi();
 //            String url = "/v1/shopping/flight-destinations?origin=PAR";
+
+//            FlightDate[] flightDates = amadeus.shopping.flightDates.get(Params
+//                .with("origin", "MAD")
+//                .and("destination", "MUC"));
+
 
             Params flightOffersSearchParameters = Params.with("originLocationCode", "PAR")
                 .and("destinationLocationCode", "MAD")
