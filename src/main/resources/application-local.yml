@@ -4,7 +4,7 @@ server:
 flightTicketResource:
   amadeus:
     app_config:
-      url: https://test.api.amadeus.com/
+      url: {amadeus_api_url}
       api_key: {amadeus_api_key}
       api_secret: {amadeus_api_secret}
     api:
