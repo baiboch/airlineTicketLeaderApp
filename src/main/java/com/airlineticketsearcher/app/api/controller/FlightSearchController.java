@@ -1,4 +1,4 @@
-package com.airlineticketsearcher.app.controller;
+package com.airlineticketsearcher.app.api.controller;
 
 import com.airlineticketsearcher.app.model.UnifiedFlight;
 import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;

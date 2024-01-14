@@ -1,7 +1,7 @@
-package com.airlineticketsearcher.app.adapter;
+package com.airlineticketsearcher.app.service.adapter;
 
 import com.airlineticketsearcher.app.model.UnifiedFlight;
-import com.airlineticketsearcher.app.strategy.FlightConversionStrategy;
+import com.airlineticketsearcher.app.service.strategy.FlightConversionStrategy;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.airlineticketsearcher.app.strategy;
+package com.airlineticketsearcher.app.service.strategy;
 
 import com.airlineticketsearcher.app.model.SabreFlight;
 import com.airlineticketsearcher.app.model.UnifiedFlight;

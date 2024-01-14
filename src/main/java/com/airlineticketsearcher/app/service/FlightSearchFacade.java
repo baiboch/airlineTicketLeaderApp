@@ -1,14 +1,14 @@
 package com.airlineticketsearcher.app.service;
 
-import com.airlineticketsearcher.app.adapter.FlightAdapter;
+import com.airlineticketsearcher.app.service.adapter.FlightAdapter;
 import com.airlineticketsearcher.app.model.AmadeusFlight;
 import com.airlineticketsearcher.app.model.SabreFlight;
 import com.airlineticketsearcher.app.model.TravelportFlight;
 import com.airlineticketsearcher.app.model.UnifiedFlight;
 import com.airlineticketsearcher.app.model.request.UnifiedFlightSearchRequest;
-import com.airlineticketsearcher.app.strategy.AmadeusFlightConversionStrategy;
-import com.airlineticketsearcher.app.strategy.SabreFlightConversionStrategy;
-import com.airlineticketsearcher.app.strategy.TravelportFlightConversionStrategy;
+import com.airlineticketsearcher.app.service.strategy.AmadeusFlightConversionStrategy;
+import com.airlineticketsearcher.app.service.strategy.SabreFlightConversionStrategy;
+import com.airlineticketsearcher.app.service.strategy.TravelportFlightConversionStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
